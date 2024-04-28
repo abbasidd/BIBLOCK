@@ -38,7 +38,7 @@ contract BIBLOCK is ERC20Burnable, Ownable {
         uint256 addedValue
     ) public returns (bool) {
         _approve(
-            _msgSender(),
+            msg.sender,
             spender,
             allowance(msg.sender, spender) + addedValue
         );
@@ -55,7 +55,7 @@ contract BIBLOCK is ERC20Burnable, Ownable {
             "ERC20: decreased allowance below zero"
         );
         unchecked {
-            _approve(_msgSender(), spender, currentAllowance - subtractedValue);
+            _approve(msg.sender, spender, currentAllowance - subtractedValue);
         }
         return true;
     }
@@ -76,14 +76,14 @@ contract BIBLOCK is ERC20Burnable, Ownable {
     }
 
     function burn(uint256 value) public override onlyOwner {
-        _burn(_msgSender(), value);
+        _burn(msg.sender, value);
     }
 
     function burnFrom(
         address account,
         uint256 value
     ) public override onlyOwner {
-        _spendAllowance(account, _msgSender(), value);
+        _spendAllowance(account, msg.sender, value);
         _burn(account, value);
     }
 
