@@ -13,6 +13,12 @@ module.exports = {
       chainId: 97,
       accounts: [PrivateKey],
     },
+    mainnet: {
+      url: "https://bsc-dataseed.bnbchain.org/",
+      chainId: 56,
+      // gasPrice: 20000000000,
+      accounts: [PrivateKey],
+    },
   },
   etherscan: {
     // Your API key for Etherscan
