@@ -9,5 +9,8 @@ npx hardhat help
 npx hardhat test
 REPORT_GAS=true npx hardhat test
 npx hardhat node
-npx hardhat ignition deploy ./ignition/modules/Lock.js
+npx hardhat ignition deploy ./ignition/modules/deploy.js --network testnet
 ```
+
+for verify
+npx hardhat verify 0xB5775382A025d72BA99B56D88B8F837E77a45dff 1000000000000000000000000000000000 --network testnet
